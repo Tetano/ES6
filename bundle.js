@@ -6,24 +6,79 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-alert("Teste");
+var nome = document.getElementById('nome');
+var cpf = document.getElementById('cpf');
+var idade = document.getElementById('idade');
+var M = document.getElementById('generoM');
+var F = document.getElementById('generoF');
 
-var Teste =
-/*#__PURE__*/
-function () {
-  function Teste() {
-    _classCallCheck(this, Teste);
+function checar() {
+  var genero;
+
+  if (M.checked) {
+    genero = 'M'; // console.log(genero)
   }
 
-  _createClass(Teste, [{
-    key: "metodo",
-    value: function metodo() {
-      console.log("teste");
+  if (F.checked) {
+    genero = 'F'; // console.log(genero)
+  }
+
+  return genero;
+}
+
+var Usuario =
+/*#__PURE__*/
+function () {
+  function Usuario(nome, cpf, idade, genero) {
+    _classCallCheck(this, Usuario);
+
+    this.nome = nome;
+    this.cpf = cpf;
+    this.idade = idade;
+    this.genero = genero;
+  }
+
+  _createClass(Usuario, [{
+    key: "addUsuario",
+    value: function addUsuario(Nome, Cpf, Idade, Genero) {
+      this.nome = Nome;
+      this.cpf = Cpf;
+      this.idade = Idade;
+      this.genero = Genero;
+      console.log(this.nome, this.cpf, this.genero, this.idade);
     }
-  }, {
-    key: "outroMetodo",
-    value: function outroMetodo() {}
   }]);
 
-  return Teste;
+  return Usuario;
 }();
+
+var Usuarios =
+/*#__PURE__*/
+function () {
+  function Usuarios() {
+    _classCallCheck(this, Usuarios);
+
+    this.Usuario = [];
+  }
+
+  _createClass(Usuarios, [{
+    key: "addUsuarios",
+    value: function addUsuarios(item) {
+      this.Usuario.push(item);
+      console.log(this.Usuario);
+    }
+  }]);
+
+  return Usuarios;
+}();
+
+var ItemUsuario = new Usuario();
+var ListaUsuarios = new Usuarios();
+var botao = document.getElementById('addTodo');
+
+botao.onclick = function () {
+  checar();
+  ItemUsuario.addUsuario(nome.value, cpf.value, idade.value, checar()); // console.log(nome.value,cpf.value, idade.value, checar());
+
+  ListaUsuarios.addUsuarios(ItemUsuario);
+};
