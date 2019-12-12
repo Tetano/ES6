@@ -3,7 +3,7 @@ let cpf = document.getElementById('cpf');
 let idade = document.getElementById('idade');
 let M = document.getElementById('generoM');
 let F = document.getElementById('generoF');
-
+let td = document.getElementsByTagName('td');
 function checar() {
     let genero;
     if (M.checked){
@@ -45,6 +45,7 @@ class Usuarios {
         console.log(this.Usuario);
     }
 }
+console.log();
 
 const ItemUsuario = new Usuario();
 const ListaUsuarios = new Usuarios();
@@ -54,5 +55,6 @@ botao.onclick = function(){
     ItemUsuario.addUsuario(nome.value,cpf.value, idade.value, checar());
     // console.log(nome.value,cpf.value, idade.value, checar());
     ListaUsuarios.addUsuarios(ItemUsuario);
+
 };
 

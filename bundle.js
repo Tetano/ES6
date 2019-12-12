@@ -11,6 +11,7 @@ var cpf = document.getElementById('cpf');
 var idade = document.getElementById('idade');
 var M = document.getElementById('generoM');
 var F = document.getElementById('generoF');
+var td = document.getElementsByTagName('td');
 
 function checar() {
   var genero;
@@ -72,6 +73,7 @@ function () {
   return Usuarios;
 }();
 
+console.log();
 var ItemUsuario = new Usuario();
 var ListaUsuarios = new Usuarios();
 var botao = document.getElementById('addTodo');
